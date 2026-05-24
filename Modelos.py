@@ -32,19 +32,18 @@ class User(databaseCAFETERIA.Model):
     def makereservation(self, menuIds, comidaId):
         return
     
-#Clase para almuerzo
+#Clase para almuerzo (item)
 class Lunch(databaseCAFETERIA.Model):
     id = databaseCAFETERIA.Column(databaseCAFETERIA.Integer, primary_key=True)
     name = databaseCAFETERIA.Column(databaseCAFETERIA.String(80), nullable=False)
     quantity = databaseCAFETERIA.Column(databaseCAFETERIA.Integer)#Cantidad de esa comida en especifico
     #description = db.Column(db.Text)
-    menu_id = databaseCAFETERIA.Column(databaseCAFETERIA.Integer, databaseCAFETERIA.ForeignKey('menu.id'), nullable=False) #Clave foránea de la tabla menú
-    order = databaseCAFETERIA.Column(databaseCAFETERIA.Integer, unique=True, nullable=False) #Numero de orden
     #Métodos para enlazarse con un Menu
-    def addtomenu(self, menuID):
+    def addtomenu(self, menuID):#Relacionar con la tabla intermedia
         return
     #Métodos para borrar o editar alguna comida o agregar
     
+#Clase para Menu (tiene varios almuerzos)
 class Menu(databaseCAFETERIA.Model): #Falta crear tabla intermedia entre Food y Menu (N a N)
     id = databaseCAFETERIA.Column(databaseCAFETERIA.Integer, primary_key=True)
     day = databaseCAFETERIA.Column(databaseCAFETERIA.String(20), nullable=False)
@@ -52,8 +51,19 @@ class Menu(databaseCAFETERIA.Model): #Falta crear tabla intermedia entre Food y 
     #enu = db.Column(db.Text, nullable=False)
     #foods = db.relationship('Food', backref='menu', lazy=True, cascade='all, delete-orphan')
     
-class Reservation(databaseCAFETERIA.Model): # N a 1 con User
-    id = databaseCAFETERIA.Column(databaseCAFETERIA.Integer, primary_key=True)
-    
+#Clase para abarrotes
 class groceries(databaseCAFETERIA.Model):
     id = databaseCAFETERIA.Column()
+
+#######TABLAS RESERVAS###########
+class Reservation_lunch(databaseCAFETERIA.Model): # N a 1 con User y 1 a 1 con menú
+    id = databaseCAFETERIA.Column(databaseCAFETERIA.Integer, primary_key=True)
+     
+class Reservation_groceries(databaseCAFETERIA.Model):
+    id=None
+    
+########TABLAS INTERMEDIAS########
+
+#Un menu puede tener varios almuerzos y un almuerzo puede aparecer en multiples menus
+class Lunch_Menu(databaseCAFETERIA.Model):
+    id=None
