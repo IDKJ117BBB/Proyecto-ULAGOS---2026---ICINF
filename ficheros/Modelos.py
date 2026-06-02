@@ -1,16 +1,13 @@
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-import os
-#from flask1 import Controladores
+#from flask import Flask
+#from flask_sqlalchemy import SQLAlchemy
+#import os
+from app.app import db
 
-app=Flask(__name__) #__name__ hace referencia al archivo en el q estamos
 
-dbdir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(dbdir, 'database.db')#Configuracion de los motores
 
-#inicializar SQLalchemy
-db = SQLAlchemy()#Instanciar un objeto database
-db.init_app(app)
+
+
+
 
 #Cada modelo es una tabla en la base de datos
 
@@ -40,7 +37,7 @@ class User(db.Model):
             return
         
 
-    
+    """
 #Clase para almuerzo (item)
 class Lunch(db.Model):
     __tablename__='lunch'
@@ -91,4 +88,4 @@ class Lunch_Menu(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     lunch_id = db.Column(db.Integer, db.ForeignKey('lunch.id'), nullable=False)
     menu_id = db.Column(db.Integer, db.ForeignKey('menu.id'), nullable=False)
-
+"""

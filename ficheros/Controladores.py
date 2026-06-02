@@ -1,6 +1,6 @@
 from flask import render_template, redirect, url_for, request
 from modelos import Modelos
-from app import app
+from app.app import db
 
 @app.route('/')
 def index():
