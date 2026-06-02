@@ -1,17 +1,17 @@
-from flask1 import Flask
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask1 import Controladores
+import os
+#from flask1 import Controladores
 
 app=Flask(__name__) #__name__ hace referencia al archivo en el q estamos
-app.config["SQLALCHEMY_DATABASE_URL"] = "sqlite:///Maindatabase.db"#Configuracion de los motores
+
+dbdir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(dbdir, 'database.db')#Configuracion de los motores
 
 #inicializar SQLalchemy
 db = SQLAlchemy()#Instanciar un objeto database
 db.init_app(app)
 
-"""class base(DeclarativeBase):
-    pass
-"""
 #Cada modelo es una tabla en la base de datos
 
 #Clase para usuario y admin
@@ -25,8 +25,8 @@ class User(db.Model):
     @classmethod
     def get(cls,rut,password):
        user = cls.query.filter_by(rut=rut).first() #Para obtener la fila donde al rut sea igual al ingresado
-       if rut==True and rut.password==password: #comprobar si el rut existe y si la contraseña en la base datos es igual a la ingresada
-           return rut
+       if user==True and user.password==password: #comprobar si el rut existe y si la contraseña en la base datos es igual a la ingresada
+           return user
        return None
        
     def makereservation(self, tiporeserva):

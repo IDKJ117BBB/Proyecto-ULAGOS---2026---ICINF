@@ -1,4 +1,4 @@
-from flask1 import Flask
+"""from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 
@@ -58,4 +58,4 @@ class Reservation_Groceries(db.Model):
     groceries_id = db.Column(db.Integer, db.ForeignKey('groceries.id'), nullable=False)
     description = db.Column(db.String(200), nullable=True)
 
-#01/06 samu goat goat goat
+#01/06 samu goat goat goat"""

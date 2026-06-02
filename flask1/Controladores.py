@@ -10,13 +10,12 @@ def index():
 @app.route('/login', methods=['POST'])
 def login():
     # prototipo de validación de datos
-    username = request.form.get('username')
+    rut = request.form.get('rut')
     password = request.form.get('password')
     
-    # aquí irá la verificacion, la lógica está en Modelos.py
-
-    
-    return redirect(url_for('dashboard'))
+    # aquí la verificacion, la lógica está en Modelos.py
+    if Modelos.User.get(rut, password):
+        return redirect(url_for('dashboard'))
 
 @app.route('/dashboard')
 def dashboard():
@@ -45,10 +44,10 @@ def admin_agregar_usuario():
         # Prototipo: model.User.agregar_usuario()
         return redirect(url_for('dashboard'))
     return render_template('admin_user.html')
-
-"""if __name__ == '__main__':
+""""
+if __name__ == '__main__':
     with app.app_context():
-        db.create_all() # samu, esto crea la base de datos si no existe. En caso de... edit 31/06
+        Modelos.db.create_all() # samu, esto crea la base de datos si no existe. En caso de... edit 31/06
     app.run(debug=True)"""
 
 # edit 01/06, y me faltan algunas cositas pero esto avancé, posta me sirvió mucho tu forma de programar, de hecho, fue una gran guia :)
