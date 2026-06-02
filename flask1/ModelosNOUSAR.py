@@ -1,5 +1,6 @@
-from flask import Flask
+from flask1 import Flask
 from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__)
 # esto lo corregí por: SQLALCHEMY_DATABASE_URI (era URL básicamente)

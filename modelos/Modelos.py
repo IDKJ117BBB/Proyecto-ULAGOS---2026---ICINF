@@ -1,5 +1,6 @@
-from flask import Flask
+from flask1 import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask1 import Controladores
 
 app=Flask(__name__) #__name__ hace referencia al archivo en el q estamos
 app.config["SQLALCHEMY_DATABASE_URL"] = "sqlite:///Maindatabase.db"#Configuracion de los motores
@@ -16,22 +17,29 @@ db.init_app(app)
 #Clase para usuario y admin
 class User(db.Model):
     __tablename__='user'
-    id= db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(60), nullable=False)
+    rut = db.Column(db.Integer, primary_key=True, nullable=False)#numero sin puntos ni espacios ni dígito verificador, luego configurar esto
+    username = db.Column(db.String(70), nullable=False)
     password = db.Column(db.String(30), nullable=False)
-    role = db.Column(db.Boolean, nullable=False, default=False)#rol, True=admin, False=cliente
-    #Añadir métodos que usen los atributos de user
-    #Tales como iniciar sesión, realizar reserva
-    def user_verification(self, passwordIn): #PasswordIn es la contraseña que le pasaremos desde la ventana
-        """Logica aqui"""
-        return
+    role = db.Column(db.Boolean, nullable=False, default=False)#True=admin, False=cliente
+
+    @classmethod
+    def get(cls,rut,password):
+       user = cls.query.filter_by(rut=rut).first() #Para obtener la fila donde al rut sea igual al ingresado
+       if rut==True and rut.password==password: #comprobar si el rut existe y si la contraseña en la base datos es igual a la ingresada
+           return rut
+       return None
+       
+    def makereservation(self, tiporeserva):
+            #Funcion para crear un enlace con la id de este usuario
+            return
+         
     def agregar_usuario(self): #Se supone solo el admin debe tener acceso a esto
         if self.role==1:
             #Crea un usuario y lo agrega
             #Aqui va lo que puede hacer el admin (en este caso agregar user)
             return
-    def makereservation(self, menuIds, comidaId):
-        return
+        
+
     
 #Clase para almuerzo (item)
 class Lunch(db.Model):
