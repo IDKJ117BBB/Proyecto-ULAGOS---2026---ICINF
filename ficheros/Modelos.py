@@ -1,7 +1,7 @@
 #from flask import Flask
 #from flask_sqlalchemy import SQLAlchemy
 #import os
-from app.app import db
+from .configr import db
 
 
 
@@ -22,7 +22,7 @@ class User(db.Model):
     @classmethod
     def get(cls,rut,password):
        user = cls.query.filter_by(rut=rut).first() #Para obtener la fila donde al rut sea igual al ingresado
-       if user==True and user.password==password: #comprobar si el rut existe y si la contraseña en la base datos es igual a la ingresada
+       if user and user.password==password: #comprobar si el rut existe y si la contraseña en la base datos es igual a la ingresada
            return user
        return None
        

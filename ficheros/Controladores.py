@@ -1,6 +1,7 @@
 from flask import render_template, redirect, url_for, request
-from modelos import Modelos
-from app.app import db
+
+from .configr import app
+from . import modelos
 
 @app.route('/')
 def index():
@@ -14,7 +15,7 @@ def login():
     password = request.form.get('password')
     
     # aquí la verificacion, la lógica está en Modelos.py
-    if Modelos.User.get(rut, password):
+    if modelos.User.get(rut, password):
         return redirect(url_for('dashboard'))
 
 @app.route('/dashboard')
