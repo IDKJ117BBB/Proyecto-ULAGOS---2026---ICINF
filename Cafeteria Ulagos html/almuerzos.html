@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafetería ULagos - Almuerzos</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+    :root{
+        --blanco: #ffffff;
+        --azul-oscuro: #0f2f52;
+        --amarillo-suave:  #ffc933;
+    }
+
+    body {
+        background-color: #f4f8fc;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* NAVBAR */
+    .navbar{
+        background-color: #ffffff !important;
+        box-shadow: 0 2px 10px rgba(235, 232, 232, 0.339);
+    }
+
+    .logo-ulagos{
+        width: 100px;
+        height: 90px;
+        object-fit: contain;
+    }
+
+    .brand-text{
+        font-weight: 700;
+        color: rgb(14, 12, 12);
+        font-size: 1.3rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.4rem;
+        color: rgb(10, 9, 9) !important;
+    }
+
+    .nav-link{
+        color: rgb(13, 10, 10) !important;
+        font-weight: 500;
+    }
+
+    .btn-reservas{
+        background-color: var(--amarillo-suave);
+        color: #231d0f;
+        font-weight: 600;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+
+    .btn-reservas:hover{
+        background-color: #f6d013;
+        transform: translateY(-2px);
+    }
+
+    .btn-custom {
+        background-color: #0d6efd;
+        color: white;
+        border: none;
+        transition: 0.3s;
+    }
+
+    .btn-custom:hover {
+        background-color: #0b5ed7;
+        color: white;
+    }
+
+    .btn-outline-custom {
+        border: 1px solid #0d6efd;
+        color: #0d6efd;
+        transition: 0.3s;
+    }
+
+    .btn-outline-custom:hover {
+        background-color: #0d6efd;
+        color: white;
+    }
+
+    /* TÍTULOS */
+    .section-title {
+        color: #0d6efd;
+        font-weight: bold;
+    }
+
+    .section-subtitle {
+        color: #6c757d;
+    }
+
+    /* CARDS */
+    .menu-card {
+        border: none;
+        border-radius: 18px;
+        overflow: hidden;
+        transition: 0.3s ease;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+        background-color: white;
+        height: 100%;
+    }
+
+    .menu-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .menu-img {
+        height: 220px;
+        object-fit: cover;
+    }
+
+    .badge-custom {
+        background-color: #fff3cd;
+        color: #856404;
+        font-weight: 500;
+        padding: 8px 12px;
+        border-radius: 50px;
+    }
+
+    .price {
+        color: #0d6efd;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    footer {
+        background-color: white;
+        border-top: 1px solid #dee2e6;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+        .menu-img {
+            height: 200px;
+        }
+
+        .navbar .d-flex {
+            flex-direction: column;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .navbar .btn {
+            width: 100%;
+        }
+    }
+</style>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top py-3">
+        <div class="container">
+
+            <!-- LOGO -->
+            <a class="navbar-brand d-flex align-items-center gap-3" href="#">
+                <img 
+                   src="logo.ulagos/logo.ulagos.png" 
+                    alt="Logo ULagos"
+                    class="logo-ulagos"
+
+                >
+
+                <span class="brand-text">   
+                    Cafetería ULagos
+                </span>
+            </a>
+
+            <!-- BOTON MOBILE -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContenido">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- MENU -->
+            <div class="collapse navbar-collapse" id="navbarContenido">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Almuerzos</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Snacks</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="btn btn-reservas">
+                            <i class="bi bi-calendar-check"></i>
+                            Mis Reservas
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Contenido -->
+    <section class="container py-5">
+
+        <div class="text-center mb-5">
+            <h1 class="section-title">
+                Almuerzos del Día
+            </h1>
+
+            <p class="section-subtitle">
+                Opciones frescas, saludables y deliciosas para disfrutar en la universidad.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Menú 1 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card menu-card">
+
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1200&auto=format&fit=crop"
+                        class="menu-img" alt="Menú 1">
+
+                    <div class="card-body d-flex flex-column">
+
+                        <span class="badge-custom mb-3">
+                            Menú 1
+                        </span>
+
+                        <h5 class="fw-bold">
+                            Pollo a la Plancha
+                        </h5>
+
+                        <p class="text-muted">
+                            Acompañado de arroz graneado y ensalada fresca de temporada.
+                        </p>
+
+                        <div class="mt-auto">
+
+                            <p class="mb-2">
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                Disponible: 20
+                            </p>
+
+                            <p class="price">
+                                $4.500
+                            </p>
+
+                            <button class="btn btn-outline-custom w-100 mb-2"
+                                onclick="agregarCarrito('Pollo a la Plancha')">
+                                Agregar
+                            </button>
+
+                            <a href="reservas.html"
+                                onclick="return validarDiaCompra()"
+                                class="btn btn-custom w-100">
+                                Reservar
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menú 2 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card menu-card">
+
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop"
+                        class="menu-img" alt="Menú 2">
+
+                    <div class="card-body d-flex flex-column">
+
+                        <span class="badge-custom mb-3">
+                            Menú 2
+                        </span>
+
+                        <h5 class="fw-bold">
+                            Carne Mechada
+                        </h5>
+
+                        <p class="text-muted">
+                            Deliciosa carne mechada servida con puré casero.
+                        </p>
+
+                        <div class="mt-auto">
+
+                            <p class="mb-2">
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                Disponible: 20
+                            </p>
+
+                            <p class="price">
+                                $5.200
+                            </p>
+
+                            <button class="btn btn-outline-custom w-100 mb-2"
+                                onclick="agregarCarrito('Carne Mechada')">
+                                Agregar
+                            </button>
+
+                            <a href="reservas.html"
+                                onclick="return validarDiaCompra()"
+                                class="btn btn-custom w-100">
+                                Reservar
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menú 3 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card menu-card">
+
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1200&auto=format&fit=crop"
+                        class="menu-img" alt="Hipocalórico">
+
+                    <div class="card-body d-flex flex-column">
+
+                        <span class="badge-custom mb-3">
+                            Hipocalórico
+                        </span>
+
+                        <h5 class="fw-bold">
+                            Ensalada César
+                        </h5>
+
+                        <p class="text-muted">
+                            Lechuga fresca, pollo grillado, crutones y salsa césar.
+                        </p>
+
+                        <div class="mt-auto">
+
+                            <p class="mb-2">
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                Disponible: 20
+                            </p>
+
+                            <p class="price">
+                                $4.200
+                            </p>
+
+                            <button class="btn btn-outline-custom w-100 mb-2"
+                                onclick="agregarCarrito('Ensalada César')">
+                                Agregar
+                            </button>
+
+                            <a href="reservas.html"
+                                onclick="return validarDiaCompra()"
+                                class="btn btn-custom w-100">
+                                Reservar
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menú 4 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card menu-card">
+
+                    <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?q=80&w=1200&auto=format&fit=crop"
+                        class="menu-img" alt="Vegetariano">
+
+                    <div class="card-body d-flex flex-column">
+
+                        <span class="badge-custom mb-3">
+                            Vegetariano
+                        </span>
+
+                        <h5 class="fw-bold">
+                            Lasaña de Verduras
+                        </h5>
+
+                        <p class="text-muted">
+                            Preparada con verduras frescas y salsa bechamel.
+                        </p>
+
+                        <div class="mt-auto">
+
+                            <p class="mb-2">
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                Disponible: 20
+                            </p>
+
+                            <p class="price">
+                                $4.800
+                            </p>
+
+                            <button class="btn btn-outline-custom w-100 mb-2"
+                                onclick="agregarCarrito('Lasaña de Verduras')">
+                                Agregar
+                            </button>
+
+                            <a href="reservas.html"
+                                onclick="return validarDiaCompra()"
+                                class="btn btn-custom w-100">
+                                Reservar
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 mt-5">
+        <div class="container text-center">
+
+            <p class="mb-1 fw-semibold text-primary">
+                Cafetería ULagos
+            </p>
+
+            <small class="text-muted">
+                © 2026 - Todos los derechos reservados
+            </small>
+
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

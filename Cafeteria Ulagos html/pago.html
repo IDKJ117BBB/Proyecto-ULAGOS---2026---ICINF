@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pago | Cafetería ULagos</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+<style>
+    :root{
+        --blanco: #ffffff;
+        --azul-oscuro: #0f2f52;
+        --amarillo-suave:  #ffc933;
+    }
+
+    body {
+        background-color: #f4f8fc;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* NAVBAR */
+    .navbar{
+        background-color: #ffffff !important;
+        box-shadow: 0 2px 10px rgba(235, 232, 232, 0.339);
+    }
+
+    .logo-ulagos{
+        width: 100px;
+        height: 90px;
+        object-fit: contain;
+    }
+
+    .brand-text{
+        font-weight: 700;
+        color: rgb(14, 12, 12);
+        font-size: 1.3rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.4rem;
+        color: rgb(10, 9, 9) !important;
+    }
+
+    .nav-link{
+        color: rgb(13, 10, 10) !important;
+        font-weight: 500;
+    }
+
+    .btn-reservas{
+        background-color: var(--amarillo-suave);
+        color: #231d0f;
+        font-weight: 600;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+
+    .btn-reservas:hover{
+        background-color: #f6d013;
+        transform: translateY(-2px);
+    }
+
+    .btn-custom {
+        background-color: #0d6efd;
+        color: white;
+        border: none;
+        transition: 0.3s;
+    }
+
+    .btn-custom:hover {
+        background-color: #0b5ed7;
+        color: white;
+    }
+
+    .btn-outline-custom {
+        border: 1px solid #0d6efd;
+        color: #0d6efd;
+        transition: 0.3s;
+    }
+
+    .btn-outline-custom:hover {
+        background-color: #0d6efd;
+        color: white;
+    }
+
+    /* TÍTULOS */
+    .section-title {
+        color: #0d6efd;
+        font-weight: bold;
+    }
+
+    .section-subtitle {
+        color: #6c757d;
+    }
+
+    /* CARDS */
+    .menu-card {
+        border: none;
+        border-radius: 18px;
+        overflow: hidden;
+        transition: 0.3s ease;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+        background-color: white;
+        height: 100%;
+    }
+
+    .menu-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .menu-img {
+        height: 220px;
+        object-fit: cover;
+    }
+
+    .badge-custom {
+        background-color: #fff3cd;
+        color: #856404;
+        font-weight: 500;
+        padding: 8px 12px;
+        border-radius: 50px;
+    }
+
+    .price {
+        color: #0d6efd;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    footer {
+        background-color: white;
+        border-top: 1px solid #dee2e6;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+        .menu-img {
+            height: 200px;
+        }
+
+        .navbar .d-flex {
+            flex-direction: column;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .navbar .btn {
+            width: 100%;
+        }
+    }
+</style>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top py-3">
+        <div class="container">
+
+            <!-- LOGO -->
+            <a class="navbar-brand d-flex align-items-center gap-3" href="#">
+                <img 
+                   src="logo.ulagos/logo.ulagos.png" 
+                    alt="Logo ULagos"
+                    class="logo-ulagos"
+
+                >
+
+                <span class="brand-text">   
+                    Cafetería ULagos
+                </span>
+            </a>
+
+            <!-- BOTON MOBILE -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContenido">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- MENU -->
+            <div class="collapse navbar-collapse" id="navbarContenido">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Almuerzos</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Snacks</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="btn btn-reservas">
+                            <i class="bi bi-calendar-check"></i>
+                            Mis Reservas
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+
+<div class="container py-5">
+
+<div class="row justify-content-center">
+
+<div class="col-lg-8">
+
+<div class="card payment-card">
+
+<div class="card-body p-4 p-lg-5">
+
+<h2 class="section-title mb-4">
+
+<i class="bi bi-credit-card"></i>
+Método de Pago
+
+</h2>
+
+<!-- Selección -->
+
+<div class="row g-3 mb-4">
+
+<div class="col-md-6">
+
+<div
+class="method-card active"
+id="webpayCard"
+onclick="selectMethod('webpay')">
+
+<i class="bi bi-credit-card-2-front-fill"></i>
+
+<h5 class="mt-3">
+Webpay
+</h5>
+
+<p class="text-muted mb-0">
+Pago con débito o crédito
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+
+<div
+class="method-card"
+id="junaebCard"
+onclick="selectMethod('junaeb')">
+
+<i class="bi bi-mortarboard-fill"></i>
+
+<h5 class="mt-3">
+JUNAEB Edenred
+</h5>
+
+<p class="text-muted mb-0">
+Tarjeta de alimentación
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FORMULARIO WEBPAY -->
+
+<div id="webpayForm">
+
+<h5 class="mb-3">
+Datos de Tarjeta
+</h5>
+
+<input
+class="form-control mb-3"
+placeholder="Nombre del titular">
+
+<input
+class="form-control mb-3"
+placeholder="Número de tarjeta">
+
+<div class="row">
+
+<div class="col-md-6">
+
+<input
+class="form-control mb-3"
+placeholder="MM/AA">
+
+</div>
+
+<div class="col-md-6">
+
+<input
+class="form-control mb-3"
+placeholder="CVV">
+
+</div>
+
+</div>
+
+<select class="form-select mb-4">
+
+<option>
+Débito
+</option>
+
+<option>
+Crédito
+</option>
+
+</select>
+
+</div>
+
+<!-- FORMULARIO JUNAEB -->
+
+<div id="junaebForm" class="hidden">
+
+<h5 class="mb-3">
+Validación Edenred
+</h5>
+
+<input
+class="form-control mb-3"
+placeholder="RUT">
+
+<input
+class="form-control mb-3"
+placeholder="Número Tarjeta Edenred">
+
+<input
+class="form-control mb-3"
+placeholder="Código de Seguridad Edenred">
+
+<div class="alert alert-warning">
+
+<i class="bi bi-info-circle"></i>
+
+Se solicitará validación según las políticas de Edenred.
+
+</div>
+
+</div>
+
+<!-- RESUMEN -->
+
+<div class="summary mb-4">
+
+<div class="d-flex justify-content-between">
+
+<span>Producto</span>
+<strong>Almuerzo 1</strong>
+
+</div>
+
+<hr>
+
+<div class="d-flex justify-content-between">
+
+<span>Total</span>
+
+<h4 class="text-primary mb-0">
+$3.500
+</h4>
+
+</div>
+
+</div>
+
+<div class="alert alert-info">
+
+<i class="bi bi-ticket-perforated-fill"></i>
+
+Al completar el pago se generará automáticamente un código de reserva.
+
+</div>
+
+<div class="d-grid">
+
+<a
+href="codigo-reserva.html"
+class="btn btn-main btn-lg">
+
+<i class="bi bi-check-circle-fill"></i>
+Confirmar Pago
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function selectMethod(method){
+
+const webpay =
+document.getElementById("webpayForm");
+
+const junaeb =
+document.getElementById("junaebForm");
+
+const webpayCard =
+document.getElementById("webpayCard");
+
+const junaebCard =
+document.getElementById("junaebCard");
+
+if(method === "webpay"){
+
+webpay.classList.remove("hidden");
+junaeb.classList.add("hidden");
+
+webpayCard.classList.add("active");
+junaebCard.classList.remove("active");
+
+}
+
+else{
+
+junaeb.classList.remove("hidden");
+webpay.classList.add("hidden");
+
+junaebCard.classList.add("active");
+webpayCard.classList.remove("active");
+
+}
+
+}
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
