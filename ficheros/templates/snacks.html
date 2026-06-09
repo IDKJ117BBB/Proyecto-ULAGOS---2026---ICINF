@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -310,7 +311,7 @@ footer h5 { color: #fff; font-family: 'Fraunces', serif; font-weight: 900; }
               <span class="price">${{ '{:,}'.format(p.precio).replace(',', '.') }}</span>
               <span class="stock-badge">Stock: {{ p.stock }}</span>
             </div>
-            <button class="btn-add" onclick="addToCart(this, '{{ p.nombre }}', '{{ key }}', {{ p.precio }})">
+            <button class="btn-add" onclick="addToCart(this, '{{ p.nombre }}', '{{ key }}', '{{ p.precio }}')">
               <i class="bi bi-plus-circle"></i> Agregar a reserva
             </button>
           </div>
@@ -517,3 +518,4 @@ function confirmReserva() {
 </script>
 </body>
 </html>
+--->

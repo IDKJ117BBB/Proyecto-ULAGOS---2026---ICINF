@@ -20,8 +20,8 @@ def login():
 
 @app.route('/dashboard')
 def dashboard():
-    # ventana de selección: almuerzos o abarrotes
-    return render_template('dashboard.html')
+    # ventana de selección: almuerzos o snacks
+    return render_template('index.html')
 
 @app.route('/reservar_almuerzo', methods=['GET', 'POST'])
 def reservar_almuerzo():

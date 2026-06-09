@@ -3,12 +3,6 @@
 #import os
 from .configr import db
 
-
-
-
-
-
-
 #Cada modelo es una tabla en la base de datos
 
 #Clase para usuario y admin
@@ -35,9 +29,7 @@ class User(db.Model):
             #Crea un usuario y lo agrega
             #Aqui va lo que puede hacer el admin (en este caso agregar user)
             return
-        
-
-    """
+"""
 #Clase para almuerzo (item)
 class Lunch(db.Model):
     __tablename__='lunch'
@@ -88,4 +80,4 @@ class Lunch_Menu(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     lunch_id = db.Column(db.Integer, db.ForeignKey('lunch.id'), nullable=False)
     menu_id = db.Column(db.Integer, db.ForeignKey('menu.id'), nullable=False)
-"""
+    """
