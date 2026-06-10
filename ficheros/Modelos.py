@@ -13,19 +13,23 @@ class User(db.Model):
     password = db.Column(db.String(30), nullable=False)
     role = db.Column(db.Boolean, nullable=False, default=False)#True=admin, False=cliente
 
+    #Son métodos de clase ya que trabajan con esta tabla como tal
     @classmethod
     def get(cls,rut,password):
        user = cls.query.filter_by(rut=rut).first() #Para obtener la fila donde al rut sea igual al ingresado
        if user and user.password==password: #comprobar si el rut existe y si la contraseña en la base datos es igual a la ingresada
            return user
        return None
-       
+   
+       ##Esto es de clase reservation
     def makereservation(self, tiporeserva):
             #Funcion para crear un enlace con la id de este usuario
             return
          
-    def agregar_usuario(self): #Se supone solo el admin debe tener acceso a esto
-        if self.role==1:
+         
+    def add_user(cls): #Se supone solo el admin debe tener acceso a esto
+        if cls.role==1:
+            
             #Crea un usuario y lo agrega
             #Aqui va lo que puede hacer el admin (en este caso agregar user)
             return

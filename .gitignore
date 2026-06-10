@@ -2,3 +2,4 @@
 indicaciones-varias.txt
 .venv/
 .gitignore
+__pycache__/

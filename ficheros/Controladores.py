@@ -11,7 +11,9 @@ def index():
 @app.route('/login', methods=['POST'])
 def login():
     # prototipo de validación de datos
+    #Ahora debe tener validación para aceptar la forma xxxxxxxx-x
     rut = request.form.get('rut')
+    #La contraseña tambien tiene que tener restricciones, no carácteres especiales
     password = request.form.get('password')
     
     # aquí la verificacion, la lógica está en Modelos.py
@@ -42,13 +44,10 @@ def comprar_abarrotes():
 def admin_agregar_usuario():
     # Solo accesible si role == True (Admin)
     if request.method == 'POST':
-        # Prototipo: model.User.agregar_usuario()
+        rut = request.form.get('rut')
+        username = request.form.get('nombre')
+        password = request.form.get('password')
         return redirect(url_for('dashboard'))
     return render_template('admin_user.html')
-""""
-if __name__ == '__main__':
-    with app.app_context():
-        Modelos.db.create_all() # samu, esto crea la base de datos si no existe. En caso de... edit 31/06
-    app.run(debug=True)"""
 
-# edit 01/06, y me faltan algunas cositas pero esto avancé, posta me sirvió mucho tu forma de programar, de hecho, fue una gran guia :)
+
